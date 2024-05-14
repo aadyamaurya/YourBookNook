@@ -1,0 +1,33 @@
+<%- include('../partials/header') %>
+
+<main>
+    <!-- Form for editing -->
+    <section class="new-form">
+        <h1>Edit Your Book</h1>
+        <form method="POST" action="/items/<%= item.id %>?_method=PUT" enctype="application/x-www-form-urlencoded" class="new-form">
+            <!-- Input fields for editing -->
+
+            <label for="condition">Condition:</label>
+            <select id="condition" name="condition" required>
+                <option value="new" <% if (item.condition === 'new') { %>selected<% } %>>New</option>
+                <option value="like_new" <% if (item.condition === 'like_new') { %>selected<% } %>>Like New</option>
+                <option value="good" <% if (item.condition === 'good') { %>selected<% } %>>Good</option>
+                <option value="acceptable" <% if (item.condition === 'acceptable') { %>selected<% } %>>Acceptable</option>
+                <option value="poor" <% if (item.condition === 'poor') { %>selected<% } %>>Poor</option>
+            </select> 
+
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" value="<%= item.title %>" required>
+            
+            <label for="price">Price:</label>
+            <input type="text" id="price" name="price" value="<%= item.price %>" required pattern="[0-9]+(\.[0-9]+)?" title="Enter a valid price (e.g., 10.99)">
+
+            <label for="details">Details:</label>
+            <textarea id="details" name="details" rows="4" required><%= item.details %></textarea>
+
+            <input type="submit" value="Submit">
+        </form>
+    </section>
+</main>
+
+<%- include('../partials/footer') %>

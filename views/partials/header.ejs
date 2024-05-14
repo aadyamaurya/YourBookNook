@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YourBookNook - Buy and Sell Books</title>
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/item.css">
+    <link rel="stylesheet" href="/css/items.css">
+    <link rel="stylesheet" href="/css/new.css">
+    <link rel="stylesheet" href="/css/profile.css">
+</head>
+
+<body>
+
+    <div class="content-wrap"> 
+        <!-- Header Section -->
+        <header>
+            <div class="logo">
+                <a href="/"><img src="/images/logo.png" alt="YourBookNook Logo"></a>
+            </div>
+            <!-- Search bar -->
+            <form action="/items/search" method="GET">
+                <div class="search-bar">
+                    <input type="text" name="q" placeholder="Type to Search">
+                    <button type="submit">Search</button>
+                </div>
+            </form>
+            
+            <nav>
+                <ul>
+                    <li><a href="/items">Browse</a></li>
+                    <li><a href="/items/new">Sell</a></li>
+                    <% if(!user) { %>
+                        <li><a href="/users/new">Sign Up</a></li>
+                        <li><a href="/users/login">Login</a></li>
+                    <% } else { %>
+                        <li><a href="/users/profile">My Account</a></li>
+                        <li><a href="/users/logout">Logout</a></li>
+                    <% } %>
+                </ul>
+            </nav>
+            
+        </header>
+
+        <div class="flash-messages">
+            <% if (errorMessages && errorMessages.length > 0) { %>
+                <% errorMessages.forEach(message => { %>
+                    <div class='error'>
+                        <%= message %>
+                    </div>
+                <% }); %>
+            <% } %>
+            
+            <% if (successMessages && successMessages.length > 0) { %>
+                <% successMessages.forEach(message => { %>
+                    <div class='success'>
+                        <%= message %>
+                    </div>
+                <% }); %>
+            <% } %>            
+        </div>
+        

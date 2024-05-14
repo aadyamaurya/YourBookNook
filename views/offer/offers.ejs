@@ -1,0 +1,37 @@
+<%- include('../partials/header.ejs') %>
+<main>
+    <h2>Offers:</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>User Name</th>
+                <th>Amount</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if (offers.length > 0) { %>
+                <% offers.forEach(offer => { %>
+                    <tr>
+                        <td><%= offer.user.firstName %> <%= offer.user.lastName %></td>
+                        <td>$<%= offer.amount %></td>
+                        <td>
+                            <% if (offer.status === 'accepted') { %>
+                                <span>Accepted</span>
+                            <% } else if (offer.status === 'rejected') { %>
+                                <span>Rejected</span>
+                            <% } else { %>
+                                <form action="/items/<%= item._id %>/offers/<%= offer._id %>/accept" method="POST">
+                                    <button type="submit" <% if (offer.status === 'accepted' || offer.status === 'rejected') { %>disabled<% } %>>Accept</button>
+                                </form>
+                            <% } %>
+                        </td>
+                    </tr>
+                <% }); %>
+            <% } else { %>
+                <tr><td colspan="3">No offers found.</td></tr>
+            <% } %>
+        </tbody>
+    </table>
+</main>
+<%- include('../partials/footer.ejs') %>

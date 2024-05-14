@@ -1,0 +1,32 @@
+<%- include('../partials/header') %>
+<main>
+    <div class="item-details">             
+        <div class="details-column">
+            <img src="/images/<%= item.image %>" alt="<%= item.title %>">
+            <h2><%= item.title %></h2>
+        </div>
+        <div class="details-column">
+            <p>Condition: <%= item.condition %></p>
+            <p>Price: $<%= item.price.toFixed(2) %></p>
+            <p>Total Offers: <%= item.totalOffers %></p>
+            <p>Seller: <%= item.sellerName %></p>
+            <p>Description: <%= item.details %></p>
+            
+            <% if (item.active) { %>
+                <form method="POST" action="/items/<%= item._id %>" enctype="application/x-www-form-urlencoded" class="offer-form">
+                    <label for="amount">Enter Offer Amount:</label>
+                    <input type="text" id="amount" name="amount" value="" required pattern="[0-9]+(\.[0-9]+)?" title="Enter a valid price (e.g., 10.99)">
+                    <button type="submit">Make Offer</button>
+                </form>
+                <% if (item.highestOffer) { %>
+                    <p>Highest Offer: $<%= item.highestOffer.toFixed(2) %></p>
+                <% } %>
+            <% } else { %>
+                <p>Item not available.</p>
+            <% } %>
+            
+            
+        </div>
+    </div>
+</main>  
+<%- include('../partials/footer') %>

@@ -1,0 +1,30 @@
+<%- include('../partials/header') %>
+<main>
+    
+    <% if (items.length > 0) { %>
+        <h1>Browse Books</h1>
+        <p>Explore our collection of books...</p>
+    <% } %>
+    <div class="item-container">
+        <% if (items.length === 0) { %>
+            <!-- display message when no items match -->
+            <p>Sorry, there are no items that match.</p>
+        <% } else { %>
+            <% items.forEach(item => { %>
+                <% if (item.active) { %> <!-- Check if the item is active -->
+                    <!-- display each item loop -->
+                    <div class="item">
+                        <img src="/images/<%= item.image %>" alt="<%= item.title %>">
+                        <h2><%= item.title %></h2>
+                        <p>Condition: <%= item.condition %></p>
+                        <p>Price: $<%= item.price.toFixed(2) %></p>
+                        <p>Total Offers: <%= item.totalOffers %></p>
+                        <a href="/items/<%= item.id %>" class="View-Details-Button">View Details</a>
+                    </div>
+                <% } %> <!-- End of condition to check if the item is active -->
+            <% }); %>
+        <% } %>
+    </div>
+    
+</main>
+<%- include('../partials/footer') %>

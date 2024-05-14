@@ -1,0 +1,38 @@
+<%- include('../partials/header') %>
+
+<main>
+    <!--Form-->
+    <section class="new-form">
+        <h1>Sell Your Book</h1>
+        
+        <form action="/items" method="POST" enctype="multipart/form-data">
+            
+            <label for="condition">Condition:</label>
+            <select id="condition" name="condition" required>
+                <option value="" disabled selected>Select Condition</option>
+                <option value="New">New</option>
+                <option value="Like New">Like New</option>
+                <option value="Good">Good</option>
+                <option value="Acceptable">Acceptable</option>
+                <option value="Poor">Poor</option>
+            </select>
+        
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title" placeholder="Enter the title" required>
+        
+            <label for="price">Price:</label>
+            <input type="text" id="price" name="price" value="" required pattern="[0-9]+(\.[0-9]+)?" title="Enter a valid price (e.g., 10.99)">
+        
+            <label for="details">Details:</label>
+            <textarea id="details" name="details" rows="4" placeholder="Enter item details" required></textarea>
+        
+            <label for="image">Image:</label>
+            <input type="file" id="image" name="image" accept="image/*" required>
+        
+            <input type="submit" value="Submit">
+        </form>
+        
+    </section>
+</main>
+
+<%- include('../partials/footer') %>

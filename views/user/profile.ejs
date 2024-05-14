@@ -1,0 +1,40 @@
+<%- include('../partials/header.ejs') %>
+<main>
+    <h2>Welcome, <%= user.firstName %></h2>
+    <section class="item-listings">
+        <% if (items.length) { %>
+            <p>You have created the following items:</p>
+            <% items.forEach(item => { %>
+                <div class="item">
+                    <a href="/items/<%= item._id %>">
+                        <p class="link-style"><%= item.title %></p>
+                    </a>
+                    <div class="button-group">
+                        <a href="/items/<%= item._id %>/edit" class="Edit-Button">Edit</a>
+                        <form action="/items/<%= item._id %>?_method=DELETE" method="POST">
+                            <button type="submit" class="Delete-Button">Delete</button>
+                        </form>
+                        <a href="/items/<%= item._id %>/offers" class="view-offers-button">View Offers</a>
+                    </div>
+                </div>
+            <% }); %>
+        <% } else { %>
+            <p>You have not created any items.</p>
+        <% } %>
+    <section class="offers-list">
+        <% if (offers.length) { %>
+            <p>Your offers:</p>
+            <ul>
+                <% offers.forEach(offer => { %>
+                    <% if (offer.item) { %>
+                        <li>Offered amount: $<%= offer.amount %> for <a href="/items/<%= offer.item._id %>"><%= offer.item.title %></a> - Status: <%= offer.status %></li>
+                    
+                    <% } %>
+                <% }); %>
+            </ul>
+        <% } else { %>
+            <p>You have not made any offers yet.</p>
+        <% } %>
+    </section>
+</main>
+<%- include('../partials/footer.ejs') %>

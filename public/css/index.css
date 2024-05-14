@@ -1,0 +1,31 @@
+.introduction {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.introduction .content-container {
+    text-align: center; 
+    margin-top: 20px; 
+}
+
+.introduction img {
+    max-width: 50%; 
+    height: auto; 
+    margin-top: 20px; 
+}
+
+.start-browsing-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #242526; /* Dark Grey */
+    color: #fff; /* White */
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.start-browsing-button:hover {
+    background-color: #1c1d1e; /* Darker Grey2*/
+}
+
+

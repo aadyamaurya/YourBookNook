@@ -1,0 +1,20 @@
+.item img {
+    height: 220px;
+    width: 170px;
+}
+
+.View-Details-Button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #8f9779; /* Green */
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-weight: bold;
+    border: 2px solid #333; 
+}
+
+.View-Details-Button:hover {
+    background-color: #5f6450; /* Dark green */
+}

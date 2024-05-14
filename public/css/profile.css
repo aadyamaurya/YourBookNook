@@ -1,0 +1,60 @@
+.Edit-Button{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #8f9779; /* Green */
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-weight: bold;
+    border: 2px solid #333; 
+    height: 55px;
+    width: 100px;
+    font-size: large;
+    
+}
+.Delete-Button{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #8f9779; /* Green */
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-weight: bold;
+    border: 2px solid #333; 
+    height: 55px;
+    width: 100px;
+    font-size: large;
+}
+.Delete-Button:hover {
+    background-color: #5f6450; /* Dark green */
+}
+.Edit-Button:hover {
+    background-color: #5f6450; /* Dark green */
+}
+.link-style{
+    display: block;
+    color:black;
+    text-decoration: none;
+    margin-bottom: 5px;
+}
+.link-style:hover {
+    text-decoration: underline;
+}
+.view-offers-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #8f9779; /* Green */
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-weight: bold;
+    border: 2px solid #333; 
+    height: 55px;
+    width: 100px;
+}
+.view-offers-button:hover {
+    background-color: #5f6450;
+}
